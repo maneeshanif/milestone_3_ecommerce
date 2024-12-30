@@ -5,6 +5,9 @@ import React from "react";
 import Link from "next/link";
 import { Heart, ShoppingBag, User } from "lucide-react";
 import CategoryAcc from "../Home/Accordian/CategoryAcc";
+import { useAtom } from "jotai";
+import { cartAtom } from "@/store/cartAtom";
+import { favoriteProductsAtom } from "@/store/favprodAtom";
 
 const bottomNavigation = [
   { title: "Home", link: "/" },
@@ -16,6 +19,8 @@ const bottomNavigation = [
 ];
 
 const Navbar = () => {
+  const [isFavorite] = useAtom(favoriteProductsAtom);
+  const [cart] = useAtom(cartAtom);
   return (
     <div className="w-full bg-white text-white md:sticky md:top-0 md:z-10">
       {/* logo and search bar */}
@@ -58,13 +63,13 @@ const Navbar = () => {
           <Link href="/cart" className="relative block">
             <Heart className="hover:text-blue-300 text-black duration-200 cursor-pointer" />
             <span className="inline-flex items-center justify-center bg-red-500 text-white absolute -top-1 -right-2 text-[9px] rounded-full w-4 h-4">
-              0{/* {cartProduct?.length > 0 ? cartProduct?.length : "0"}  */}
+              {isFavorite.length > 0 ? isFavorite?.length : "0"} 
             </span>
           </Link>
           <Link href="/cart" className="relative block">
             <ShoppingBag className="hover:text-blue-300 text-black duration-200 cursor-pointer" />
             <span className="inline-flex items-center justify-center bg-red-500 text-white absolute -top-1 -right-2 text-[9px] rounded-full w-4 h-4">
-              0{/* {cartProduct?.length > 0 ? cartProduct?.length : "0"}  */}
+              {cart?.length > 0 ? cart?.length : "0"} 
             </span>
           </Link>
         </div>

@@ -6,4 +6,6 @@ export interface CategoryBanner {
   ImageUrl: string;
 }
 
+
+
 export const categoryAtom = atom<CategoryBanner[]>([]);
