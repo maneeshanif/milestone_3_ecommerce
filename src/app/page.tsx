@@ -7,6 +7,7 @@ import HighlightProd from "@/components/Home/prodHighlight/HighlightProd";
 import Product from "@/components/Home/products/Product";
 import CategoryProvider from "@/components/providers/category/CateProv";
 import ProdProv from "@/components/providers/products/ProdProv";
+import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
      <FamSearch />
 
      {/* providers */}
+     <Toaster position="bottom-right" />
     <CategoryProvider />
     <ProdProv  />
     <FooterTop />
