@@ -104,7 +104,7 @@ const ProductCard = ( ) => {
                 <span className="text-md text-black">Stock:</span>
             <span className="text-md  text-gray-500"> {item.stock} left</span>
             </div>
-            <AddToCartBtn  />
+            <AddToCartBtn   />
 
              
           
