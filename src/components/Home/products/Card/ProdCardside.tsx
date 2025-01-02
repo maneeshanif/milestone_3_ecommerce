@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Heart, Eye } from "lucide-react"; // Lucide icons
-import { useAtom } from "jotai"; // Jotai for state management
+import { Heart, Eye } from "lucide-react"; 
+import Link from "next/link";
+import { useAtom } from "jotai"; 
 import { cn } from "@/lib/utils";
-import { toast } from "react-hot-toast"; // React Hot Toast
+import { toast } from "react-hot-toast"; 
 import { CardProps } from "./Card";
 import { productAtom } from "@/store/productAtom";
 import { favoriteProductsAtom } from "@/store/favprodAtom";
@@ -28,7 +29,8 @@ const ProdCardSide = ({ product }: { product?: CardProps }) => {
         const exists = prev.some((item) => item?._id === product?._id);
         if (exists) {
           const remMsg =  `${product?.name.substring(0, 10)}  has been removed from Favorites.`
-          toast(remMsg );
+        
+          toast.error(remMsg );
           return prev.filter((item) => item?._id !== product?._id);
         } else if (product) {
           const secMsg = `${product.name.substring(0, 10)} has been added to Favorites.`
@@ -59,7 +61,9 @@ const ProdCardSide = ({ product }: { product?: CardProps }) => {
         className="w-11 h-11 flex items-center justify-center rounded-full text-black hover:text-white hover:bg-black duration-200"
         aria-label="View Product"
       >
-        <Eye />
+        <Link href={`/product/${product?._id}`} >
+        <Eye  />
+        </Link>
       </button>
     </div>
   );

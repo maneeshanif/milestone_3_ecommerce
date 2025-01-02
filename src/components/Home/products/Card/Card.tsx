@@ -15,7 +15,7 @@ import {
 import Image from "next/image";
 import { Star } from "lucide-react";
 import ProdCardSide from "./ProdCardside";
-// import AddToCartBtn from "./AddtoCart";
+import AddToCartBtn from "./AddtoCart";
 // import FormattedPrice from "@/components/formatted-price";
 
 // import AddToCartBtn from "@/components/add-to-cart-btn";
@@ -38,7 +38,7 @@ export interface CardProps {
  
 }
 
-const ProductCard = () => {
+const ProductCard = ( ) => {
     const [items] = useAtom(productAtom)
   const [isOpen, setIsOpen] = useState(false);
 //   const [searchText, setSearchText] = useAtom(searchTextAtom);
@@ -104,7 +104,7 @@ const ProductCard = () => {
                 <span className="text-md text-black">Stock:</span>
             <span className="text-md  text-gray-500"> {item.stock} left</span>
             </div>
-            {/* <AddToCartBtn  /> */}
+            <AddToCartBtn  />
 
              
           

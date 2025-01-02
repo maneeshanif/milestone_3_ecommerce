@@ -22,7 +22,7 @@ const ProductSection = () => {
        <div className='my-10'>
         <div className='flex items-center justify-between'>
             <h1 className='font-bold text-4xl'> Top Selling Products</h1>
-            <Link href={'/'} className='text-sm relative font-semibold text-black group'>View All</Link>
+            <Link href={'/product'} className='text-sm relative font-semibold text-black group'>View All</Link>
             <span className='absolute bottom-0 left-0 w-full block h-[1px] bg-gray-600 -translate-x-[100%] group-hover:translate-x-0 duration-300'></span>
         </div>
          <div className='w-full h-[1px] bg-gray-200' />
