@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useAtom } from "jotai";
 import { cartAtom } from "@/store/cartAtom"; // Jotai atoms for state management
 // import CartProduct from "@/components/CartProduct";
-// import CheckoutBtn from "./Checkoutbtn";
+import CheckoutBtn from "./Checkoutbtn";
 import FormattedPrice from "./FormatedPrice";
 // import { productAtom } from "@/store/productAtom";
 import CartProduct from "./CartProd";
@@ -41,14 +41,14 @@ const Cart: React.FC = () => {
           <div className="mt-10 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
             {/* Products Section */}
             <section className="lg:col-span-7">
-              <div className="divide-y divide-gray-200 border-b border-t border-gray-200">
+              <div className="divide-y divide-gray-200 border-b border-t  border-gray-200">
                 {cartProduct.map((product) => (
                   <CartProduct product={product} key={product._id} />
                 ))}
               </div>
             </section>
 
-            {/* Order Summary Section */}
+            {/* Order Summary Section  checkout section*/}
             <section className="mt-16 rounded-lg bg-gray-50 px-4  py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
               <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
               <dl className="mt-6 space-y-4">
@@ -89,7 +89,7 @@ const Cart: React.FC = () => {
                   </dd>
                 </div>
               </dl>
-              {/* <CheckoutBtn products={cartProduct} /> */}
+              <CheckoutBtn  />
             </section>
           </div>
         </>
@@ -102,7 +102,7 @@ const Cart: React.FC = () => {
             doloremque eaque nesciunt!
           </p>
           <Link
-            href="/product"
+            href="/"
             className="bg-gray-800 text-gray-200 px-8 py-4 rounded-md hover:bg-black hover:text-white duration-200 uppercase text-sm font-semibold tracking-wide"
           >
             Go to shopping

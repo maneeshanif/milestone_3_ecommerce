@@ -30,3 +30,8 @@ export const decreaseQuantity = (productId: string, setCartProduct: (update: (pr
     )
   );
 };
+
+// Action to remove a product from the cart
+export const removeFromCart = (productId: string, setCartProduct: (update: (prev: Product[]) => Product[]) => void) => {
+  setCartProduct((prev: Product[]) => prev.filter((item) => item._id !== productId));
+};

@@ -52,7 +52,7 @@ const HighlightProd = () => {
               <h3 className="text-2xl font-bold max-w-44">{item?.title}</h3>
               <p className="text-base font-bold mt-4"> From ${item?.price}</p>
             </div>
-            <Link href="/" className="text-base font-normal">
+            <Link href="/product" className="text-base font-normal">
               {item.buttonTitle}
             </Link>
           </div>

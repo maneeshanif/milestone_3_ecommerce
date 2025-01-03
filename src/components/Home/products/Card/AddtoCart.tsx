@@ -89,7 +89,7 @@ const AddToCartBtn = ({
           <p className="text-base font-semibold w-10 text-center">
             
             {/* {cartProduct ? existingProduct?.stock : 1} */}
-            {/* {existingProduct?.quntity} */}
+            {/* {existingProduct?.quantity} */}
           </p>
           <button
             onClick={handleAddToCart}

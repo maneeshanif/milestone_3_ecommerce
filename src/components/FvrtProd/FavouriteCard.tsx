@@ -4,13 +4,23 @@ import { MdClose } from "react-icons/md";
 // import { useAtom } from "jotai";
 import { CardProps } from "../Home/products/Card/Card";
 import { useRouter } from "next/navigation";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import AddToCart from "../Home/products/Card/AddtoCart";
 import FormattedPrice from "../cart/FormatedPrice";
+import { useAtom } from "jotai";
+import { favoriteProductsAtom } from "@/store/favprodAtom";
 import Image from "next/image";
 
 const FavoriteProductCard = ({ product }: { product: CardProps }) => {
+  const [favoriteProducts, setFavoriteProducts] = useAtom(favoriteProductsAtom);
 //  = useAtom();
+
+  const removeFromFavorite = (id: string) => {
+    setFavoriteProducts((prev) => prev.filter((product) => product._id !== id));
+
+
+
+  }
   const router = useRouter();
   return (
     <div className="flex py-6">
@@ -18,6 +28,10 @@ const FavoriteProductCard = ({ product }: { product: CardProps }) => {
         <div className="lg:flex-1">
           <div className="sm:flex">
             <div>
+              {favoriteProducts.length === 0 && (
+                <p className="text-sm text-gray-500">No favorite products</p>
+              )}
+              
               <h4 className="font-medium text-gray-900">{product?.name}</h4>
               <p className="mt-2 hidden text-sm text-gray-500 sm:block">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia esse odio a reprehenderit tempora fugiat inventore voluptates, necessitatibus aperiam aut explicabo, ad, laborum assumenda tenetur!
@@ -32,8 +46,8 @@ const FavoriteProductCard = ({ product }: { product: CardProps }) => {
             </div>
             <span
               onClick={() => {
-                // removeFromFavorite(product?._id);
-                // toast.success("Removed from favorite successfully!");
+                removeFromFavorite(product?._id);
+                toast.success("Removed from favorite successfully!");
               }}
               className="text-lg text-gray-600 hover:text-red-600 duration-200 cursor-pointer inline-block mt-4 sm:mt-0"
             >

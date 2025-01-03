@@ -58,7 +58,7 @@ const ProductCard = ( ) => {
 //   };
 
   return (
-    <div className="  grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  md:gap-4 ">
+    <div className="  grid grid-cols-1  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  md:gap-4 ">
       {items.map((item) => (
         <div key={item._id} className="border  w-full border-gray-200 rounded-lg p-1 overflow-hidden hover:border-black  cursor-pointer">
           <div className="w-44 h-60 relative p-2 group">
@@ -74,7 +74,7 @@ const ProductCard = ( ) => {
               alt="Product Image"
               width={200}
               height={200}
-              className="w-full h-full rounded-md object-cover  "
+              className=" h-full rounded-md object-cover w-[250] md:w-[200] "
             />
             <ProdCardSide product={item} />
           </div>
@@ -104,7 +104,7 @@ const ProductCard = ( ) => {
                 <span className="text-md text-black">Stock:</span>
             <span className="text-md  text-gray-500"> {item.stock} left</span>
             </div>
-            <AddToCartBtn   />
+            <AddToCartBtn   product={item} />
 
              
           

@@ -1,22 +1,42 @@
 import  Link  from "next/link";
-// import { ProductProps } from "../../type";
+
 import FormattedPrice from "../cart/FormatedPrice";
 import AddToCartBtn from "../Home/products/Card/AddtoCart";
 import { IoClose } from "react-icons/io5";
-// // import { store } from "../lib/store";
-// import toast from "react-hot-toast";
-// import { FaCheck } from "react-icons/fa";
+import toast from "react-hot-toast";
+import { useAtom } from "jotai";
+
 import Image from "next/image";
 import { CardProps } from "../Home/products/Card/Card";
+import { cartAtom } from "@/store/cartAtom";
 
 const CartProduct = ({ product }: { product: CardProps }) => {
-//   const { removeFromCart } = store();
-//   const handleRemoveProduct = () => {
-//     if (product) {
-//       removeFromCart(product?._id);
-//       toast.success(`${product?.name.substring(0, 20)} deleted successfully!`);
-//     }
-//   };
+  const [favoriteProducts, setRemoveProduct] = useAtom(cartAtom);
+
+const handleRemoveProduct = () => {
+  if (product) {
+    console.log('Cart before removal:', favoriteProducts);
+    console.log('Removing product with ID:', product._id);
+
+    setRemoveProduct((prev) => {
+      const updatedCart = prev.filter((item) => item._id !== product._id);
+      console.log('Updated cart:', updatedCart);
+      toast.success(`${product?.name.substring(0, 20)} deleted successfully!`);
+      return updatedCart;
+    });
+
+  }
+};
+
+
+
+  favoriteProducts.map((product) => {
+    if (product._id === product._id) {
+      return 'product already in favorite';
+    }
+    // console.log(product); 
+  });
+  
   return (
     <div className="flex py-6 sm:py-10">
       <Link href={`/product/${product?._id}`}>
@@ -52,8 +72,8 @@ const CartProduct = ({ product }: { product: CardProps }) => {
           <div className="mt-4 sm:mt-0 sm:pr-9">
             <div className="absolute right-0 top-0">
               <button
-                // onClick={handleRemoveProduct}
-                // className="-m2 inline-flex p-2 text-gray-600 hover:text-red-600"
+                onClick={handleRemoveProduct}
+                className="-m2 inline-flex p-2 text-gray-600 hover:text-red-600"
               >
                 <IoClose className="text-xl" />
               </button>

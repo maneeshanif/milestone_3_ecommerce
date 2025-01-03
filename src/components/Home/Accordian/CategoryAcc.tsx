@@ -8,6 +8,7 @@ import {
 import Image from "next/image";
 import { useAtom } from "jotai";
 import { categoryAtom } from "@/store/categoryAtom";
+import Link from "next/link";
 
 const CategoryAcc = () => {
   const [categories] = useAtom(categoryAtom);
@@ -35,8 +36,10 @@ const CategoryAcc = () => {
                     height={20}
                     className="w-10 h-10 rounded-md object-cover"
                   />
-                  <p className="text-gray-200 font-thin hover:text-white">
-                    {category.product_name}
+                  <p className="text-gray-200 font-thin hover:text-white hover:pointer">
+                    <Link href="/product">
+                    {category.product_name }
+                    </Link>
                   </p>
                 </div>
               ))}

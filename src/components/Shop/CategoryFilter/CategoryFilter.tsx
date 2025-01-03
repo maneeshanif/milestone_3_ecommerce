@@ -141,7 +141,7 @@ const CategoryFilters = () => {
                   <span className="text-md text-black">Stock:</span>
               <span className="text-md  text-gray-500"> {product.stock} left</span>
               </div>
-              <AddToCartBtn  />
+              <AddToCartBtn  product={product} />
   
                
             
